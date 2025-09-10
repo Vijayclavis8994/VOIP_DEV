@@ -107,23 +107,32 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               onClick={() => setActiveTab('dashboard')}
               className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
                 activeTab === 'dashboard' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg' 
-                  : 'border-2 border-figma-blue text-figma-blue'
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
+                  : 'border-2 border-success-500 text-figma-blue'
               }`}
             >
               <PhoneIcon className="h-4 w-4" />
+              
               Dashboard
             </button>
             <button 
               onClick={() => setActiveTab('settings')}
               className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
                 activeTab === 'settings' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg' 
-                  : 'border-2 border-figma-blue text-figma-blue'
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
+                  : 'border-2 border-success-500 text-figma-blue'
               }`}
             >
               <UserCircleIcon className="h-4 w-4" />
-              Settings
+              <span
+                className={`font-medium text-md ${
+                  activeTab === 'settings'
+                    ? 'text-white'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-success-500'
+                }`}
+              >
+                Settings
+              </span>
             </button>
           </div>
         </div>
@@ -139,72 +148,72 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               <div className="flex gap-3 flex-1">
                 <button
                   onClick={() => setSelectedStatsTab('total')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'total'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.total}</div>
-                  <div className="text-sm font-medium">Total Calls</div>
+                  <div className="text-xs font-medium">Total<br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('completed')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'completed'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.completed}</div>
-                  <div className="text-sm font-medium">Completed Calls</div>
+                  <div className="text-xs font-medium">Completed <br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('missed')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'missed'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.missed}</div>
-                  <div className="text-sm font-medium">Missed Calls</div>
+                  <div className="text-xs font-medium">Missed<br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('voicemail')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between p-3 text-left gap-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'voicemail'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.voicemail}</div>
-                  <div className="text-sm font-medium">Voicemail</div>
+                  <div className="text-xs font-medium">Voicemail</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('active')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between p-3 text-left gap-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'active'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.active}</div>
-                  <div className="text-sm font-medium">Active Call</div>
+                  <div className="text-xs font-medium">Active <br /> Call</div>
                 </button>
         </div>
 
               {/* Search and Filter Bar */}
               <div className="flex items-center gap-4">
                 <div className="form-control">
-                  <div className="input-group">
+                  <div className="input-group relative">
                     <input
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search"
-                      className="input input-bordered w-64"
+                      className="input input-bordered w-80 border-2" style={{ borderColor: '#dbe4f0' }}
                     />
-                    <button className="btn btn-square">
+                    <button className="btn btn-square absolute right-0 bg-transparent border-0">
                       <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
                   </div>
@@ -238,7 +247,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               <table className="table table-zebra w-full">
                 <thead className="bg-gray-50">
                 <tr>
-                    <Th><CheckIcon className="h-4 w-4" /></Th>
+                    <Th><input type="checkbox" className="checkbox checkbox-sm" /></Th>
                   <Th>Date</Th>
                   <Th>From number</Th>
                   <Th>Contact name</Th>
@@ -259,10 +268,10 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                         <input type="checkbox" className="checkbox checkbox-sm" />
                       </Td>
                       <Td>
-                        <div className="text-sm font-medium text-gray-900">{formatDateTime(row.date)}</div>
+                        <div className="text-xs w-40 font-medium text-gray-900">{formatDateTime(row.date)}</div>
                       </Td>
                       <Td>
-                        <div className="font-mono text-sm text-gray-900">{row.fromNumber}</div>
+                        <div className="font-mono w-28 text-sm text-gray-900">{row.fromNumber}</div>
                       </Td>
                       <Td>
                         <button 
@@ -286,7 +295,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowConversationModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-figma-blue w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -310,7 +319,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowConversationModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-figma-blue w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -362,7 +371,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowParsedDataModal(true)
                           }}
-                          className="px-3 py-1 bg-figma-blue text-figma-white text-xs rounded"
+                          className="px-1 w-32 py-2 bg-blue-500 text-figma-white text-xs rounded-full"
                         >
                           View Parsed Data
                         </button>
@@ -405,7 +414,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       {/* Floating Make a Call Button */}
       <button 
         onClick={() => setShowMakeCallModal(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-figma-blue rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50"
       >
         <PhoneIcon className="h-8 w-8 text-figma-white" />
       </button>
@@ -430,39 +439,50 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
 
           {/* Tabs */}
           <div className="flex border-b border-gray-200">
-            <button 
-              onClick={() => setCustomerModalTab('customer-info')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'customer-info' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <UserCircleIcon className="h-4 w-4" />
-              Customer Information
-            </button>
-            <button 
-              onClick={() => setCustomerModalTab('call-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'call-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <PhoneIcon className="h-4 w-4" />
-              Call History
-            </button>
-            <button 
-              onClick={() => setCustomerModalTab('job-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'job-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <DocumentArrowDownIcon className="h-4 w-4" />
-              Job History
-            </button>
+            {/* Customer Information */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('customer-info')}
+                className={`flex items-center gap-1 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'customer-info' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <UserCircleIcon className="h-4 w-4" />
+                Customer Information
+              </button>
+            </div>
+
+            {/* Call History */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('call-history')}
+                className={`flex items-center gap-2 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'call-history' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <PhoneIcon className="h-4 w-4" />
+                Call History
+              </button>
+            </div>
+
+            {/* Job History */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('job-history')}
+                className={`flex items-center gap-2 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'job-history' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <DocumentArrowDownIcon className="h-4 w-4" />
+                Job History
+              </button>
+            </div>
           </div>
 
           {/* Tab Content */}
@@ -725,45 +745,57 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         <div className="space-y-6">
           {/* Customer Name */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-figma-dark">Make a Call</h2>
+            <h2 className="text-2xl font-bold text-figma-dark">John Doe</h2>
           </div>
 
           {/* Tabs */}
-          <div className="flex border-b border-gray-200">
-            <button 
-              onClick={() => setMakeCallModalTab('customer-info')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'customer-info' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <UserCircleIcon className="h-4 w-4" />
-              Customer Information
-            </button>
-            <button 
-              onClick={() => setMakeCallModalTab('call-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'call-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <PhoneIcon className="h-4 w-4" />
-              Call History
-            </button>
-            <button 
-              onClick={() => setMakeCallModalTab('job-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'job-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <DocumentArrowDownIcon className="h-4 w-4" />
-              Job History
-            </button>
-          </div>
+          <div className="flex border-b border-gray-200 gap-2">
+  {/* Customer Information */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('customer-info')}
+      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+        ${makeCallModalTab === 'customer-info' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <UserCircleIcon className="h-6 w-6" />
+      Customer Information
+    </button>
+  </div>
+
+  {/* Call History */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('call-history')}
+      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+        ${makeCallModalTab === 'call-history' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <PhoneIcon className="h-6 w-6" />
+      Call History
+    </button>
+  </div>
+
+  {/* Job History */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('job-history')}
+      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+        ${makeCallModalTab === 'job-history' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <DocumentArrowDownIcon className="h-6 w-6" />
+      Job History
+    </button>
+  </div>
+</div>
+
 
           {/* Tab Content */}
           {makeCallModalTab === 'customer-info' && (
