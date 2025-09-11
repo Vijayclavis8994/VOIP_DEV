@@ -1116,11 +1116,11 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         <div className="space-y-4">
           <div className="flex items-center justify-between gap-2">
             <p className="m-0">Transcript Status</p>
-            <select defaultValue="Pick a font" className="select border-0 border-b focus:outline-none focus:border-primary-500">
-              <option disabled={true}>Pick a font</option>
-              <option>Inter</option>
-              <option>Poppins</option>
-              <option>Raleway</option>
+            <select defaultValue="Customer contacted" className="select border-0 px-2 border-b focus:outline-none focus-within:outline-none rounded-none">
+              <option disabled={true}>Customer contacted</option>
+              <option>Changes Status</option>
+              <option>Customer Contacted</option>
+              <option>Contacted attempted - Left Message</option>
             </select>
           </div>
           <div className="flex items-center justify-between gap-2">
@@ -1132,11 +1132,11 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
             </button>
           </div>
 
-          <div className="px-0 pt-0 pb-2 rounded-lg">
+          <div className="px-0 pt-0 pb-0 rounded-lg">
             <div className="text-figma-gray text-sm font-semibold mb-1">First message changes,</div>
             <div className="text-figma-gray text-sm">Thank you for calling.</div>
           </div>
-          <div className="px-0 pt-0 pb-2 rounded-lg">
+          <div className="px-0 pt-0 pb-0 rounded-lg">
             <div className="text-figma-gray text-sm font-semibold mb-1">You're welcome. How can I assist you with your heating or cooling needs today?</div>
             <div className="text-figma-gray text-sm">Thank you for calling. We are currently unable to take your call at this time. Please leave your name, phone number, and a brief message. 1 of our representatives will contact you at our earliest convenience.</div>
           </div>
