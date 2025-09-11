@@ -104,27 +104,52 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       <div className="bg-white border-b border-gray-200">
         <div className="mx-auto px-6 py-6">
           <div className="flex gap-2">
-            <button 
+            {/* <button 
               onClick={() => setActiveTab('dashboard')}
-              className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'dashboard' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
-                  : 'border-2 border-figma-blue text-figma-blue'
+                  : 'border-2 border-success-500 text-figma-blue'
+              }`}
+            >
+            </button> */}
+            <button 
+              onClick={() => setActiveTab('dashboard')}
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
+                activeTab === 'dashboard' 
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
+                  : 'border-2 border-success-500 text-figma-green'
               }`}
             >
               <PhoneIcon className="h-4 w-4" />
-              Dashboard
+              <span
+                className={`font-medium text-md ${
+                  activeTab === 'dashboard'
+                    ? 'text-white'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-success-500'
+                }`}
+              >
+                Dashboard
+              </span>
             </button>
             <button 
               onClick={() => setActiveTab('settings')}
-              className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'settings' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
-                  : 'border-2 border-figma-blue text-figma-blue'
+                  : 'border-2 border-success-500 text-figma-green'
               }`}
             >
               <UserCircleIcon className="h-4 w-4" />
-              Settings
+              <span
+                className={`font-medium text-md ${
+                  activeTab === 'settings'
+                    ? 'text-white'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-success-500'
+                }`}
+              >
+                Settings
+              </span>
             </button>
           </div>
         </div>
@@ -140,73 +165,73 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               <div className="flex gap-3 flex-1">
                 <button
                   onClick={() => setSelectedStatsTab('total')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'total'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.total}</div>
-                  <div className="text-sm font-medium">Total Calls</div>
+                  <div className="text-xs font-medium">Total<br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('completed')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'completed'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.completed}</div>
-                  <div className="text-sm font-medium">Completed Calls</div>
+                  <div className="text-xs font-medium">Completed <br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('missed')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between text-left gap-3 p-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'missed'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.missed}</div>
-                  <div className="text-sm font-medium">Missed Calls</div>
+                  <div className="text-xs font-medium">Missed<br /> Calls</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('voicemail')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between p-3 text-left gap-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'voicemail'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.voicemail}</div>
-                  <div className="text-sm font-medium">Voicemail</div>
+                  <div className="text-xs font-medium">Voicemail</div>
                 </button>
                 <button
                   onClick={() => setSelectedStatsTab('active')}
-                  className={`flex flex-col items-center p-4 rounded-lg border-2 transition-all duration-200 ${
+                  className={`flex flex-col items-start content-between p-3 text-left gap-3 w-28 rounded-lg border-2 transition-all duration-200 ${
                     selectedStatsTab === 'active'
-                      ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg'
-                      : 'border-figma-blue text-figma-blue'
+                      ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg'
+                      : 'border-figma-gray text-figma-gray'
                   }`}
                 >
                   <div className="text-2xl font-bold">{stats.active}</div>
-                  <div className="text-sm font-medium">Active Call</div>
+                  <div className="text-xs font-medium">Active <br /> Call</div>
                 </button>
         </div>
 
               {/* Search and Filter Bar */}
               <div className="flex items-center gap-4">
                 <div className="form-control">
-                  <div className="input-group">
+                  <div className="input-group relative">
                     <input
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search"
-                      className="input input-bordered w-64"
+                      className="input input-bordered w-80 border-2 focus:outline-none focus:ring-0" style={{ borderColor: '#dbe4f0' }}
                     />
-                    <button className="btn btn-square">
-                      <MagnifyingGlassIcon className="h-5 w-5" />
+                    <button className="btn btn-square absolute right-0 bg-transparent border-0 z-10">
+                      <MagnifyingGlassIcon className="h-5 w-5 text-figma-gray" />
                     </button>
                   </div>
                 </div>
@@ -221,7 +246,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                     </button>
                   </div>
                 </div>
-                <button className="flex items-center gap-2 me-2 p-4 h-auto rounded-md text-md bg-gradient-to-r from-primary-500 to-success-500 text-white">
+                <button className="flex items-center gap-2 me-2 p-3 h-auto rounded-md text-sm bg-gradient-to-r from-primary-500 to-success-500 text-white">
                   {/* <DocumentArrowDownIcon className="h-4 w-4" /> */}
                   Export CSV
                 </button>
@@ -239,7 +264,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               <table className="table table-zebra w-full">
                 <thead className="bg-gray-50">
                 <tr>
-                  <Th><CheckIcon className="h-4 w-4" /></Th>
+                    <Th><input type="checkbox" className="checkbox checkbox-sm" /></Th>
                   <Th>Date</Th>
                   <Th>From number</Th>
                   <Th>Contact name</Th>
@@ -260,10 +285,10 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                         <input type="checkbox" className="checkbox checkbox-sm" />
                       </Td>
                       <Td>
-                        <div className="text-sm font-medium text-gray-900">{formatDateTime(row.date)}</div>
+                        <div className="text-xs w-40 font-medium text-gray-400">{formatDateTime(row.date)}</div>
                       </Td>
                       <Td>
-                        <div className="font-mono text-sm text-gray-900">{row.fromNumber}</div>
+                        <div className="font-mono w-28 text-sm text-gray-400">{row.fromNumber}</div>
                       </Td>
                       <Td>
                         <button 
@@ -271,7 +296,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowAddCustomerModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 text-sm flex items-center gap-1"
                         >
                           {row.contactName ? row.contactName : (
                             <>
@@ -287,7 +312,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowConversationModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -299,10 +324,10 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowAudioModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 text-sm flex items-center gap-1"
                         >
-                          <PlayIcon className="h-3 w-3" />
                           Listen
+                          <SpeakerWaveIcon className="h-4 w-4" />
                         </button>
                       </Td>
                       <Td>
@@ -311,7 +336,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowSummaryModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -326,7 +351,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowTeamNotesModal(true)
                           }}
-                          className="text-figma-blue text-sm"
+                          className="text-primary-600 text-sm"
                         >
                           View Notes
                       </button>
@@ -336,7 +361,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                       </Td>
                       <Td>
                         {(() => {
-                          let statusColor = 'text-figma-blue';
+                          let statusColor = 'text-primary-600';
                           if (row.status === 'completed') {
                             statusColor = 'text-figma-green';
                           } else if (row.status === 'missed') {
@@ -350,7 +375,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             statusText = 'Missed';
                           }
                           
-                          return (
+                          return (  
                             <span className={`text-sm font-bold capitalize ${statusColor}`}>
                               {statusText}
                             </span>
@@ -363,7 +388,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowParsedDataModal(true)
                           }}
-                          className="px-3 py-1 bg-figma-blue text-figma-white text-xs rounded"
+                          className="px-1 w-32 py-1 bg-blue-500 text-figma-white text-xs rounded-full"
                         >
                           View Parsed Data
                         </button>
@@ -406,10 +431,13 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       {/* Floating Make a Call Button */}
       <button 
         onClick={() => setShowMakeCallModal(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-figma-blue rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50"
       >
         <PhoneIcon className="h-8 w-8 text-figma-white" />
       </button>
+      <div className="fixed bottom-1 right-6 text-xs text-figma-gray text-center">
+        <div className='text-primary-500'>Make a call</div>
+      </div>
 
 
       {/* Customer Information Modal */}
@@ -428,39 +456,50 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
 
           {/* Tabs */}
           <div className="flex border-b border-gray-200">
-            <button 
-              onClick={() => setCustomerModalTab('customer-info')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'customer-info' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <UserCircleIcon className="h-4 w-4" />
-              Customer Information
-            </button>
-            <button 
-              onClick={() => setCustomerModalTab('call-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'call-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <PhoneIcon className="h-4 w-4" />
-              Call History
-            </button>
-            <button 
-              onClick={() => setCustomerModalTab('job-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                customerModalTab === 'job-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <DocumentArrowDownIcon className="h-4 w-4" />
-              Job History
-            </button>
+            {/* Customer Information */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('customer-info')}
+                className={`flex items-center gap-1 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'customer-info' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <UserCircleIcon className="h-4 w-4" />
+                Customer Information
+              </button>
+            </div>
+
+            {/* Call History */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('call-history')}
+                className={`flex items-center gap-2 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'call-history' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <PhoneIcon className="h-4 w-4" />
+                Call History
+              </button>
+            </div>
+
+            {/* Job History */}
+            <div className={`relative rounded-t-lg ${customerModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+              <button 
+                onClick={() => setCustomerModalTab('job-history')}
+                className={`flex items-center gap-2 px-4 py-2 font-medium text-md transition-colors rounded-lg w-full
+                  ${customerModalTab === 'job-history' 
+                    ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+                    : 'bg-white text-figma-gray'
+                  }`}
+              >
+                <DocumentArrowDownIcon className="h-4 w-4" />
+                Job History
+              </button>
+            </div>
           </div>
 
           {/* Tab Content */}
@@ -723,45 +762,57 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         <div className="space-y-6">
           {/* Customer Name */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-figma-dark">Make a Call</h2>
+            <h2 className="text-2xl font-bold text-figma-dark">John Doe</h2>
           </div>
 
           {/* Tabs */}
-          <div className="flex border-b border-gray-200">
-            <button 
-              onClick={() => setMakeCallModalTab('customer-info')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'customer-info' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <UserCircleIcon className="h-4 w-4" />
-              Customer Information
-            </button>
-            <button 
-              onClick={() => setMakeCallModalTab('call-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'call-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <PhoneIcon className="h-4 w-4" />
-              Call History
-            </button>
-            <button 
-              onClick={() => setMakeCallModalTab('job-history')}
-              className={`px-4 py-2 font-medium transition-colors flex items-center gap-2 ${
-                makeCallModalTab === 'job-history' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white rounded-t-lg' 
-                  : 'text-figma-gray'
-              }`}
-            >
-              <DocumentArrowDownIcon className="h-4 w-4" />
-              Job History
-            </button>
-          </div>
+          <div className="flex gap-2">
+  {/* Customer Information */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('customer-info')}
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
+        ${makeCallModalTab === 'customer-info' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <UserCircleIcon className="h-7 w-7" />
+      Customer<br/> Information
+    </button>
+  </div>
+
+  {/* Call History */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('call-history')}
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
+        ${makeCallModalTab === 'call-history' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <PhoneIcon className="h-6 w-6" />
+      Call<br/> History
+    </button>
+  </div>
+
+  {/* Job History */}
+  <div className={`relative rounded-lg ${makeCallModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
+    <button 
+      onClick={() => setMakeCallModalTab('job-history')}
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
+        ${makeCallModalTab === 'job-history' 
+          ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
+          : 'bg-white text-figma-gray'
+        }`}
+    >
+      <DocumentArrowDownIcon className="h-6 w-6" />
+      Job <br/> History
+    </button>
+  </div>
+</div>
+
 
           {/* Tab Content */}
           {makeCallModalTab === 'customer-info' && (
@@ -1061,25 +1112,50 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         isOpen={showConversationModal}
         onClose={() => setShowConversationModal(false)}
         title={`Call Conversation - ${selectedCall?.fromNumber || 'Unknown'}`}
-        width="w-4/5 max-w-4xl"
+        width="w-4/5 max-w-2xl"
       >
         <div className="space-y-4">
-          <div className="bg-figma-blueLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-blue mb-2">AI:</div>
-            <div className="text-figma-dark">Hello! Thank you for calling. How can I assist you today?</div>
+          <div className="flex items-center justify-between gap-2">
+            <p className="m-0">Transcript Status</p>
+            <select defaultValue="Customer contacted" className="select border-0 px-2 border-b focus:outline-none focus-within:outline-none rounded-none">
+              <option disabled={true}>Customer contacted</option>
+              <option>Changes Status</option>
+              <option>Customer Contacted</option>
+              <option>Contacted attempted - Left Message</option>
+            </select>
           </div>
-          <div className="bg-figma-grayLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-gray mb-2">Human:</div>
-            <div className="text-figma-dark">I need help with my account billing. I was charged twice this month.</div>
+          <div className="flex items-center justify-between gap-2">
+            <button className="px-3 py-3 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+              Push Data
+            </button>
+            <button className="px-3 py-3 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+              Translate in English 
+            </button>
           </div>
-          <div className="bg-figma-blueLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-blue mb-2">AI:</div>
-            <div className="text-figma-dark">I understand your concern about the double billing. Let me check your account details and resolve this issue for you.</div>
+
+          <div className="px-0 pt-0 pb-0 rounded-lg">
+            <div className="text-figma-gray text-sm font-semibold mb-1">First message changes,</div>
+            <div className="text-figma-gray text-sm">Thank you for calling.</div>
           </div>
-          <div className="bg-figma-grayLight p-4 rounded-lg">
+          <div className="px-0 pt-0 pb-0 rounded-lg">
+            <div className="text-figma-gray text-sm font-semibold mb-1">You're welcome. How can I assist you with your heating or cooling needs today?</div>
+            <div className="text-figma-gray text-sm">Thank you for calling. We are currently unable to take your call at this time. Please leave your name, phone number, and a brief message. 1 of our representatives will contact you at our earliest convenience.</div>
+          </div>
+          <div className="px-0 pt-0 pb-2 rounded-lg">
+            <div className="font-semibold text-figma-gray text-sm">You for reaching out to Sujit Clavis. Please leave your name, phone number, and a brief message. And 1 of our representatives will get back to you as soon as possible.</div>
+          </div>
+          {/* <div className="bg-figma-grayLight p-4 rounded-lg">
             <div className="font-semibold text-figma-gray mb-2">Human:</div>
             <div className="text-figma-dark">Thank you, that would be great. I appreciate your help.</div>
-          </div>
+          </div> */}
+          <div className="flex items-center justify-between gap-2">
+              <button className="px-3 py-3 text-xs text-white bg-figma-red rounded flex items-center justify-center shadow-lg transition-all duration-300">
+                Report This Chat/Voice For Training 
+              </button>
+              <button className="px-3 py-3 text-xs text-white bg-figma-blue rounded flex items-center justify-center shadow-lg transition-all duration-300">
+                Report This Chat/Voice For Training 
+              </button>
+            </div>
         </div>
       </Modal>
       {/* Summary Modal */}
@@ -1107,13 +1183,13 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         width="w-96"
       >
         <div className="space-y-4">
-          <div className="bg-figma-grayLight p-3 rounded-lg">
+          <div className="bg-figma-grayLight p-2 rounded-lg">
             <div className="text-sm text-figma-gray mb-1">John Doe - 2 hours ago</div>
-            <div className="text-figma-dark">Customer was very cooperative and understanding about the billing issue.</div>
+            <div className="text-figma-dark text-sm">Customer was very cooperative and understanding about the billing issue.</div>
           </div>
-          <div className="bg-figma-grayLight p-3 rounded-lg">
+          <div className="bg-figma-grayLight p-2 rounded-lg">
             <div className="text-sm text-figma-gray mb-1">Sarah Smith - 1 hour ago</div>
-            <div className="text-figma-dark">Issue resolved successfully. Customer was satisfied with the solution.</div>
+            <div className="text-figma-dark text-sm">Issue resolved successfully. Customer was satisfied with the solution.</div>
           </div>
           <div className="mb-4">
             <label htmlFor="new-note" className="block text-sm font-medium text-figma-gray mb-2">Add New Note</label>
@@ -1121,7 +1197,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               id="new-note"
               rows={3}
               placeholder="Enter your note here..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-figma-blue"
+              className="w-full px-3 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-figma-blue"
             />
           </div>
         </div>
@@ -1132,42 +1208,73 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         isOpen={showParsedDataModal}
         onClose={() => setShowParsedDataModal(false)}
         title="Parsed Data"
-        width="w-4/5 max-w-6xl"
+        width="w-4/5 max-w-2xl"
       >
+        <button className="px-4 py-3 mb-4 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+          Push Data
+        </button>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-figma-grayLight">
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Field</th>
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Value</th>
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Confidence</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Customer Name</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">John Smith</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">95%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">First Name</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Issue Type</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Billing</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">98%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Last Name</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Account Number</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">ACC-12345</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-yellow">85%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Email Address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Sentiment</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Neutral</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">92%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Contact Number</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Resolution Status</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Resolved</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">100%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Job Type</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">priority</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Full address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Google fully verified address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Address line 1</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Address line 2</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">City</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">State</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Zip code</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Country</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">transcript_link</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">http://nowl.ink/4c118730a7</td>
               </tr>
             </tbody>
           </table>
@@ -1183,7 +1290,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       >
         <div className="space-y-6">
           <div className="text-center">
-            <div className="w-20 h-20 bg-figma-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <SpeakerWaveIcon className="h-10 w-10 text-figma-white" />
             </div>
             <h3 className="text-lg font-semibold text-figma-dark mb-2">
@@ -1198,7 +1305,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
           <div className="space-y-4">
             {/* Progress Bar */}
             <div className="w-full bg-figma-grayLight rounded-full h-2">
-              <div className="bg-figma-blue h-2 rounded-full" style={{ width: '35%' }}></div>
+              <div className="bg-primary-500 h-2 rounded-full" style={{ width: '35%' }}></div>
             </div>
 
             {/* Time Display */}
