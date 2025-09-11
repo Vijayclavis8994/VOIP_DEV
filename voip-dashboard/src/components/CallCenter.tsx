@@ -103,21 +103,37 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       <div className="bg-white border-b border-gray-200">
         <div className="mx-auto px-6 py-6">
           <div className="flex gap-2">
+            {/* <button 
+              onClick={() => setActiveTab('dashboard')}
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
+                activeTab === 'dashboard' 
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
+                  : 'border-2 border-success-500 text-figma-blue'
+              }`}
+            >
+            </button> */}
             <button 
               onClick={() => setActiveTab('dashboard')}
-              className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'dashboard' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
                   : 'border-2 border-success-500 text-figma-blue'
               }`}
             >
               <PhoneIcon className="h-4 w-4" />
-              
-              Dashboard
+              <span
+                className={`font-medium text-md ${
+                  activeTab === 'dashboard'
+                    ? 'text-white'
+                    : 'text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-success-500'
+                }`}
+              >
+                Dashboard
+              </span>
             </button>
             <button 
               onClick={() => setActiveTab('settings')}
-              className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
+              className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'settings' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
                   : 'border-2 border-success-500 text-figma-blue'
@@ -229,7 +245,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                     </button>
                   </div>
                 </div>
-                <button className="flex items-center gap-2 me-2 p-4 h-auto rounded-md text-md bg-gradient-to-r from-primary-500 to-success-500 text-white">
+                <button className="flex items-center gap-2 me-2 p-3 h-auto rounded-md text-sm bg-gradient-to-r from-primary-500 to-success-500 text-white">
                   {/* <DocumentArrowDownIcon className="h-4 w-4" /> */}
                   Export CSV
                 </button>
