@@ -211,7 +211,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
                       placeholder="Search"
-                      className="input input-bordered w-80 border-2" style={{ borderColor: '#dbe4f0' }}
+                      className="input input-bordered w-80 border-2 focus:outline-none focus:ring-0" style={{ borderColor: '#dbe4f0' }}
                     />
                     <button className="btn btn-square absolute right-0 bg-transparent border-0">
                       <MagnifyingGlassIcon className="h-5 w-5" />
