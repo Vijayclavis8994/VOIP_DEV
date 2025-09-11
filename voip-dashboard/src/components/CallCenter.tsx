@@ -435,7 +435,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         <PhoneIcon className="h-8 w-8 text-figma-white" />
       </button>
       <div className="fixed bottom-1 right-6 text-xs text-figma-gray text-center">
-        <div>Make a call</div>
+        <div className='text-primary-500'>Make a call</div>
       </div>
 
 
@@ -770,7 +770,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
   <div className={`relative rounded-lg ${makeCallModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('customer-info')}
-      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
         ${makeCallModalTab === 'customer-info' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
@@ -785,7 +785,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
   <div className={`relative rounded-lg ${makeCallModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('call-history')}
-      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
         ${makeCallModalTab === 'call-history' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
@@ -800,7 +800,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
   <div className={`relative rounded-lg ${makeCallModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('job-history')}
-      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors leading-tight rounded-lg w-36
         ${makeCallModalTab === 'job-history' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
