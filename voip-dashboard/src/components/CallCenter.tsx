@@ -374,7 +374,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             statusText = 'Missed';
                           }
                           
-                          return (
+                          return (  
                             <span className={`text-sm font-bold capitalize ${statusColor}`}>
                               {statusText}
                             </span>
