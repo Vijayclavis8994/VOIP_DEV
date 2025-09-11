@@ -229,7 +229,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                       placeholder="Search"
                       className="input input-bordered w-80 border-2 focus:outline-none focus:ring-0" style={{ borderColor: '#dbe4f0' }}
                     />
-                    <button className="btn btn-square absolute right-0 bg-transparent border-0">
+                    <button className="btn btn-square absolute right-0 bg-transparent border-0 z-10">
                       <MagnifyingGlassIcon className="h-5 w-5" />
                     </button>
                   </div>
@@ -284,10 +284,10 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                         <input type="checkbox" className="checkbox checkbox-sm" />
                       </Td>
                       <Td>
-                        <div className="text-xs w-40 font-medium text-gray-900">{formatDateTime(row.date)}</div>
+                        <div className="text-xs w-40 font-medium text-gray-400">{formatDateTime(row.date)}</div>
                       </Td>
                       <Td>
-                        <div className="font-mono w-28 text-sm text-gray-900">{row.fromNumber}</div>
+                        <div className="font-mono w-28 text-sm text-gray-400">{row.fromNumber}</div>
                       </Td>
                       <Td>
                         <button 
@@ -295,7 +295,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowAddCustomerModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 text-sm flex items-center gap-1"
                         >
                           {row.contactName ? row.contactName : (
                             <>
@@ -311,7 +311,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowConversationModal(true)
                           }}
-                          className="text-figma-blue w-32 text-sm flex items-center gap-1"
+                          className="text-primary-600 w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -323,10 +323,10 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowAudioModal(true)
                           }}
-                          className="text-figma-blue text-sm flex items-center gap-1"
+                          className="text-primary-600 text-sm flex items-center gap-1"
                         >
-                          <PlayIcon className="h-3 w-3" />
                           Listen
+                          <SpeakerWaveIcon className="h-4 w-4" />
                         </button>
                       </Td>
                       <Td>
@@ -335,7 +335,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowConversationModal(true)
                           }}
-                          className="text-figma-blue w-32 text-sm flex items-center gap-1"
+                          className="text-primary-600 w-32 text-sm flex items-center gap-1"
                         >
                           <EyeIcon className="h-3 w-3" />
                           View Details
@@ -350,7 +350,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowTeamNotesModal(true)
                           }}
-                          className="text-figma-blue text-sm"
+                          className="text-primary-600 text-sm"
                         >
                           View Notes
                       </button>
@@ -360,7 +360,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                       </Td>
                       <Td>
                         {(() => {
-                          let statusColor = 'text-figma-blue';
+                          let statusColor = 'text-primary-600';
                           if (row.status === 'completed') {
                             statusColor = 'text-figma-green';
                           } else if (row.status === 'missed') {
@@ -387,7 +387,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                             setSelectedCall(row)
                             setShowParsedDataModal(true)
                           }}
-                          className="px-1 w-32 py-2 bg-blue-500 text-figma-white text-xs rounded-full"
+                          className="px-1 w-32 py-1 bg-blue-500 text-figma-white text-xs rounded-full"
                         >
                           View Parsed Data
                         </button>
@@ -765,19 +765,19 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
           </div>
 
           {/* Tabs */}
-          <div className="flex border-b border-gray-200 gap-2">
+          <div className="flex gap-2">
   {/* Customer Information */}
   <div className={`relative rounded-lg ${makeCallModalTab === 'customer-info' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('customer-info')}
-      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
         ${makeCallModalTab === 'customer-info' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
         }`}
     >
-      <UserCircleIcon className="h-6 w-6" />
-      Customer Information
+      <UserCircleIcon className="h-7 w-7" />
+      Customer<br/> Information
     </button>
   </div>
 
@@ -785,14 +785,14 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
   <div className={`relative rounded-lg ${makeCallModalTab === 'call-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('call-history')}
-      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
         ${makeCallModalTab === 'call-history' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
         }`}
     >
       <PhoneIcon className="h-6 w-6" />
-      Call History
+      Call<br/> History
     </button>
   </div>
 
@@ -800,14 +800,14 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
   <div className={`relative rounded-lg ${makeCallModalTab === 'job-history' ? '' : 'p-[2px] bg-gradient-to-r from-primary-500 to-success-500'}`}>
     <button 
       onClick={() => setMakeCallModalTab('job-history')}
-      className={`flex items-center px-4 py-2 font-medium text-sm transition-colors rounded-lg w-full
+      className={`flex items-center gap-2 px-4 py-2 font-medium text-sm transition-colors rounded-lg w-36
         ${makeCallModalTab === 'job-history' 
           ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white'
           : 'bg-white text-figma-gray'
         }`}
     >
       <DocumentArrowDownIcon className="h-6 w-6" />
-      Job History
+      Job <br/> History
     </button>
   </div>
 </div>
