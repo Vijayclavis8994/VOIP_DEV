@@ -1220,7 +1220,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       >
         <div className="space-y-6">
           <div className="text-center">
-            <div className="w-20 h-20 bg-figma-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
               <SpeakerWaveIcon className="h-10 w-10 text-figma-white" />
             </div>
             <h3 className="text-lg font-semibold text-figma-dark mb-2">
@@ -1235,7 +1235,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
           <div className="space-y-4">
             {/* Progress Bar */}
             <div className="w-full bg-figma-grayLight rounded-full h-2">
-              <div className="bg-figma-blue h-2 rounded-full" style={{ width: '35%' }}></div>
+              <div className="bg-primary-500 h-2 rounded-full" style={{ width: '35%' }}></div>
             </div>
 
             {/* Time Display */}
