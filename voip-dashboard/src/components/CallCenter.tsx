@@ -1389,7 +1389,7 @@ function StatCard({
     ? `text-xs ${labelColorClass} text-center`
     : `text-xs ${labelColorClass}`
   
-  return (
+  return ( 
     <div className={cardClasses}>
       <div className={valueClasses}>
         {value}
