@@ -117,7 +117,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'dashboard' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
-                  : 'border-2 border-success-500 text-figma-blue'
+                  : 'border-2 border-success-500 text-figma-green'
               }`}
             >
               <PhoneIcon className="h-4 w-4" />
@@ -136,7 +136,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               className={`flex items-center gap-2 px-4 py-3 rounded-md text-sm font-medium transition-all duration-200 ${
                 activeTab === 'settings' 
                   ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
-                  : 'border-2 border-success-500 text-figma-blue'
+                  : 'border-2 border-success-500 text-figma-green'
               }`}
             >
               <UserCircleIcon className="h-4 w-4" />
@@ -230,7 +230,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
                       className="input input-bordered w-80 border-2 focus:outline-none focus:ring-0" style={{ borderColor: '#dbe4f0' }}
                     />
                     <button className="btn btn-square absolute right-0 bg-transparent border-0 z-10">
-                      <MagnifyingGlassIcon className="h-5 w-5" />
+                      <MagnifyingGlassIcon className="h-5 w-5 text-figma-gray" />
                     </button>
                   </div>
                 </div>
@@ -434,7 +434,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
       >
         <PhoneIcon className="h-8 w-8 text-figma-white" />
       </button>
-      <div className="fixed bottom-2 right-2 text-xs text-figma-gray text-center">
+      <div className="fixed bottom-1 right-6 text-xs text-figma-gray text-center">
         <div>Make a call</div>
       </div>
 
@@ -1169,13 +1169,13 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         width="w-96"
       >
         <div className="space-y-4">
-          <div className="bg-figma-grayLight p-3 rounded-lg">
+          <div className="bg-figma-grayLight p-2 rounded-lg">
             <div className="text-sm text-figma-gray mb-1">John Doe - 2 hours ago</div>
-            <div className="text-figma-dark">Customer was very cooperative and understanding about the billing issue.</div>
+            <div className="text-figma-dark text-sm">Customer was very cooperative and understanding about the billing issue.</div>
           </div>
-          <div className="bg-figma-grayLight p-3 rounded-lg">
+          <div className="bg-figma-grayLight p-2 rounded-lg">
             <div className="text-sm text-figma-gray mb-1">Sarah Smith - 1 hour ago</div>
-            <div className="text-figma-dark">Issue resolved successfully. Customer was satisfied with the solution.</div>
+            <div className="text-figma-dark text-sm">Issue resolved successfully. Customer was satisfied with the solution.</div>
           </div>
           <div className="mb-4">
             <label htmlFor="new-note" className="block text-sm font-medium text-figma-gray mb-2">Add New Note</label>
@@ -1183,7 +1183,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               id="new-note"
               rows={3}
               placeholder="Enter your note here..."
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-figma-blue"
+              className="w-full px-3 py-3 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-figma-blue"
             />
           </div>
         </div>
@@ -1194,42 +1194,73 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         isOpen={showParsedDataModal}
         onClose={() => setShowParsedDataModal(false)}
         title="Parsed Data"
-        width="w-4/5 max-w-6xl"
+        width="w-4/5 max-w-2xl"
       >
+        <button className="px-4 py-3 mb-4 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+          Push Data
+        </button>
         <div className="overflow-x-auto">
           <table className="w-full border-collapse">
-            <thead>
-              <tr className="bg-figma-grayLight">
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Field</th>
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Value</th>
-                <th className="border border-gray-300 px-4 py-2 text-left font-semibold text-figma-gray">Confidence</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Customer Name</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">John Smith</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">95%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">First Name</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Issue Type</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Billing</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">98%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Last Name</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Account Number</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">ACC-12345</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-yellow">85%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Email Address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Sentiment</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Neutral</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">92%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Contact Number</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Resolution Status</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-dark">Resolved</td>
-                <td className="border border-gray-300 px-4 py-2 text-figma-green">100%</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Job Type</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">priority</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Full address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Google fully verified address</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Address line 1</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Address line 2</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">City</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">State</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Zip code</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">Country</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">N/A</td>
+              </tr>
+              <tr>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">transcript_link</td>
+                <td className="border border-gray-300 px-4 py-2 text-figma-gray text-sm">http://nowl.ink/4c118730a7</td>
               </tr>
             </tbody>
           </table>
