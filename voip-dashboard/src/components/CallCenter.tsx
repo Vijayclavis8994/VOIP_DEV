@@ -1111,25 +1111,50 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
         isOpen={showConversationModal}
         onClose={() => setShowConversationModal(false)}
         title={`Call Conversation - ${selectedCall?.fromNumber || 'Unknown'}`}
-        width="w-4/5 max-w-4xl"
+        width="w-4/5 max-w-2xl"
       >
         <div className="space-y-4">
-          <div className="bg-figma-blueLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-blue mb-2">AI:</div>
-            <div className="text-figma-dark">Hello! Thank you for calling. How can I assist you today?</div>
+          <div className="flex items-center justify-between gap-2">
+            <p className="m-0">Transcript Status</p>
+            <select defaultValue="Pick a font" className="select border-0 border-b focus:outline-none focus:border-primary-500">
+              <option disabled={true}>Pick a font</option>
+              <option>Inter</option>
+              <option>Poppins</option>
+              <option>Raleway</option>
+            </select>
           </div>
-          <div className="bg-figma-grayLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-gray mb-2">Human:</div>
-            <div className="text-figma-dark">I need help with my account billing. I was charged twice this month.</div>
+          <div className="flex items-center justify-between gap-2">
+            <button className="px-3 py-3 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+              Push Data
+            </button>
+            <button className="px-3 py-3 text-xs bg-gradient-to-r from-primary-500 to-success-500 text-white rounded flex items-center justify-center shadow-lg transition-all duration-300">
+              Translate in English 
+            </button>
           </div>
-          <div className="bg-figma-blueLight p-4 rounded-lg">
-            <div className="font-semibold text-figma-blue mb-2">AI:</div>
-            <div className="text-figma-dark">I understand your concern about the double billing. Let me check your account details and resolve this issue for you.</div>
+
+          <div className="px-0 pt-0 pb-2 rounded-lg">
+            <div className="text-figma-gray text-sm font-semibold mb-1">First message changes,</div>
+            <div className="text-figma-gray text-sm">Thank you for calling.</div>
           </div>
-          <div className="bg-figma-grayLight p-4 rounded-lg">
+          <div className="px-0 pt-0 pb-2 rounded-lg">
+            <div className="text-figma-gray text-sm font-semibold mb-1">You're welcome. How can I assist you with your heating or cooling needs today?</div>
+            <div className="text-figma-gray text-sm">Thank you for calling. We are currently unable to take your call at this time. Please leave your name, phone number, and a brief message. 1 of our representatives will contact you at our earliest convenience.</div>
+          </div>
+          <div className="px-0 pt-0 pb-2 rounded-lg">
+            <div className="font-semibold text-figma-gray text-sm">You for reaching out to Sujit Clavis. Please leave your name, phone number, and a brief message. And 1 of our representatives will get back to you as soon as possible.</div>
+          </div>
+          {/* <div className="bg-figma-grayLight p-4 rounded-lg">
             <div className="font-semibold text-figma-gray mb-2">Human:</div>
             <div className="text-figma-dark">Thank you, that would be great. I appreciate your help.</div>
-          </div>
+          </div> */}
+          <div className="flex items-center justify-between gap-2">
+              <button className="px-3 py-3 text-xs text-white bg-figma-red rounded flex items-center justify-center shadow-lg transition-all duration-300">
+                Report This Chat/Voice For Training 
+              </button>
+              <button className="px-3 py-3 text-xs text-white bg-figma-blue rounded flex items-center justify-center shadow-lg transition-all duration-300">
+                Report This Chat/Voice For Training 
+              </button>
+            </div>
         </div>
       </Modal>
 
