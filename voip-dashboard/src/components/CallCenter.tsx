@@ -108,7 +108,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               onClick={() => setActiveTab('dashboard')}
               className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
                 activeTab === 'dashboard' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg' 
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
                   : 'border-2 border-figma-blue text-figma-blue'
               }`}
             >
@@ -119,7 +119,7 @@ export function CallCenter({ stats, query, setQuery, rows }: Props) {
               onClick={() => setActiveTab('settings')}
               className={`flex items-center gap-2 px-6 py-4 rounded-md text-md font-medium transition-all duration-200 ${
                 activeTab === 'settings' 
-                  ? 'bg-gradient-to-r from-figma-blue to-figma-green text-figma-white shadow-lg' 
+                  ? 'bg-gradient-to-r from-primary-500 to-success-500 text-figma-white shadow-lg' 
                   : 'border-2 border-figma-blue text-figma-blue'
               }`}
             >
